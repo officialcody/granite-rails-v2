@@ -38,12 +38,6 @@ class TaskTest < ActiveSupport::TestCase
     end
   end
 
-  def test_task_count_decreases_on_deleting
-    assert_difference "Task.count", -1 do
-      delete(:task)
-    end
-  end
-
   def test_task_should_not_be_valid_without_title
     @task.title = ""
     assert @task.invalid?
@@ -96,11 +90,6 @@ class TaskTest < ActiveSupport::TestCase
       @task.update!(title: updated_task_title)
       assert_equal updated_task_title, @task.title
     end
-  end
-
-  def test_background_worker_should_update_name
-    background_worker.process
-    assert_equal @user.reload.name, "Sam"
   end
 
   def test_slug_suffix_is_maximum_slug_count_plus_one_if_two_or_more_slugs_already_exist
