@@ -61,7 +61,7 @@ class TasksController < ApplicationController
       is_editing_restricted_params = Task::RESTRICTED_ATTRIBUTES.any? { |a| task_params.key?(a) }
       is_not_owner = @task.creator_id != @current_user.id
       if is_editing_restricted_params && is_not_owner
-        handle_authorization_error
+        handle_unauthorized_user
       end
     end
 
