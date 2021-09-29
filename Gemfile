@@ -57,7 +57,9 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "bcrypt", "~> 3.1.13"
+gem "letter_opener", group: :development
 gem "pundit"
 gem "react-rails"
 gem "sidekiq"
+gem "sidekiq-cron"
 gem "simplecov", require: false, group: :test
